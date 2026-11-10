@@ -7,7 +7,7 @@
  */
 var CONFIG = {
   // Required. Public phone number, written the way it should be displayed.
-  phone: "(315) 000-0000",
+  phone: "(667) 220-6558",
 
   // Required. Public email address. Also receives the form's email fallback.
   email: "amar@yugocontracting.com",
