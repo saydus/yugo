@@ -3,11 +3,16 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#0f1a2b">
+  <meta name="theme-color" content="#064fa1">
   <meta name="format-detection" content="telephone=no">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Yugo Contracting LLC">
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <meta property="og:image" content="https://www.yugocontracting.com/assets/logo-card.png">
+  <link rel="icon" href="assets/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@1,800&amp;display=swap">
   <link rel="stylesheet" href="assets/styles.css">
   <title>Page not found | Yugo Contracting</title>
   <meta name="robots" content="noindex">
@@ -16,12 +21,22 @@
   <a class="skip" href="#main">Skip to content</a>
 
   <svg class="sprite" aria-hidden="true" focusable="false">
-    <symbol id="mark" viewBox="0 0 40 40">
-      <rect x="0.5" y="0.5" width="39" height="39" fill="#0f1a2b" stroke="#3a4d6b"/>
-      <path d="M11 10l9 11.500" fill="none" stroke="#ff8a4c" stroke-width="4.500" stroke-linecap="square"/>
-      <path d="M29 10l-9 11.500" fill="none" stroke="#86c8f0" stroke-width="4.500" stroke-linecap="square"/>
-      <path d="M20 22v8.500" fill="none" stroke="#ffffff" stroke-width="4.500" stroke-linecap="square"/>
+    <symbol id="mark" viewBox="0 0 164 62">
+      <defs>
+        <linearGradient id="yugo-split" gradientUnits="userSpaceOnUse" x1="0" y1="14" x2="0" y2="38">
+          <stop offset="0" stop-color="#064fa1"/><stop offset="0.44" stop-color="#064fa1"/>
+          <stop offset="0.44" stop-color="#ffffff"/><stop offset="0.5" stop-color="#ffffff"/>
+          <stop offset="0.5" stop-color="#de2327"/><stop offset="0.6" stop-color="#de2327"/>
+          <stop offset="0.6" stop-color="#ffffff"/><stop offset="0.65" stop-color="#ffffff"/>
+          <stop offset="0.65" stop-color="#de2327"/><stop offset="1" stop-color="#de2327"/>
+        </linearGradient>
+      </defs>
+      <text x="77" y="38" text-anchor="middle" textLength="92" lengthAdjust="spacingAndGlyphs" font-family="'Barlow Condensed','Arial Narrow','Helvetica Neue',Arial,sans-serif" font-size="33" font-style="italic" font-weight="800" fill="url(#yugo-split)">YUGO</text>
+      <text x="73" y="50.500" text-anchor="middle" textLength="100" lengthAdjust="spacingAndGlyphs" font-family="'Barlow Condensed','Arial Narrow','Helvetica Neue',Arial,sans-serif" font-size="10.500" font-style="italic" font-weight="800" fill="#de2327">CONTRACTING LLC</text>
+      <polygon transform="translate(148 12) scale(1.150)" points="0,-10 2.245,-3.090 9.510,-3.090 3.633,1.180 5.880,8.090 0,3.820 -5.880,8.090 -3.633,1.180 -9.510,-3.090 -2.245,-3.090" fill="#fecf06" stroke="#ffffff" stroke-width="1.500" stroke-linejoin="miter"/>
     </symbol>
+    <symbol id="i-star" viewBox="-10 -10 20 20"><polygon points="0,-10 2.245,-3.090 9.510,-3.090 3.633,1.180 5.880,8.090 0,3.820 -5.880,8.090 -3.633,1.180 -9.510,-3.090 -2.245,-3.090"/></symbol>
+    <symbol id="i-ext" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v6H4V6h6"/></symbol>
     <symbol id="i-flame" viewBox="0 0 24 24"><path d="M12 3c1 3.500 5 5 5 10a5 5 0 0 1-10 0c0-2 1-3.200 2-4 0 2 1 3 2 3 0-3-1-5 1-9z"/></symbol>
     <symbol id="i-snow" viewBox="0 0 24 24"><path d="M12 2v20M3.300 7l17.400 10M20.700 7 3.300 17M12 6 9.500 3.500M12 6l2.500-2.500M12 18l-2.500 2.500M12 18l2.500 2.500"/></symbol>
     <symbol id="i-system" viewBox="0 0 24 24"><rect x="3" y="9" width="18" height="12"/><path d="M7 13h6M7 17h10M12 2v4.500M9.500 4.500 12 7l2.500-2.500"/></symbol>
@@ -43,9 +58,8 @@
 
   <header class="site-header">
     <div class="wrap header-row">
-      <a class="brand" href="index.html" aria-label="Yugo Contracting, home">
-        <svg aria-hidden="true"><use href="#mark"/></svg>
-        <span class="brand-name"><b>YUGO</b><span>CONTRACTING</span></span>
+      <a class="brand" href="index.html" aria-label="Yugo Contracting LLC, home" data-logo>
+        <img class="brand-img" src="assets/logo-mark.webp" alt="Yugo Contracting LLC" width="480" height="232"><svg class="brand-logo" aria-hidden="true" hidden><use href="#mark"/></svg>
       </a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
         <svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg>Menu
@@ -86,11 +100,11 @@
     <div class="wrap">
       <div class="footer-grid">
         <div class="footer-about">
-          <a class="brand" href="index.html" aria-label="Yugo Contracting, home">
-            <svg aria-hidden="true"><use href="#mark"/></svg>
-            <span class="brand-name"><b>YUGO</b><span>CONTRACTING</span></span>
+          <a class="brand" href="index.html" aria-label="Yugo Contracting LLC, home" data-logo>
+            <img class="brand-img" src="assets/logo-mark.webp" alt="Yugo Contracting LLC" width="480" height="232"><svg class="brand-logo" aria-hidden="true" hidden><use href="#mark"/></svg>
           </a>
-          <p>Yugo Contracting LLC is an owner-operated HVAC company based in Utica, NY. Residential heating and cooling, plus select light commercial work, across Central New York and the Mohawk Valley.</p>
+          <p class="tagline">Real People. Real Work. <span>Real Pride.</span></p>
+          <p>Yugo Contracting LLC is an owner-operated HVAC company based in Utica, NY, owned and run by Amar Sarajlija. Residential heating and cooling, plus select light commercial work, across Central New York and the Mohawk Valley.</p>
         </div>
         <nav aria-label="Footer">
           <h2>Pages</h2>
@@ -108,6 +122,7 @@
             <li><a href="contact.html" data-cfg-href="mailto"><span data-cfg="email">Send a request</span></a></li>
             <li data-cfg="address">Utica, NY</li>
             <li data-cfg="hours"></li>
+            <li data-show-if="linkedin" hidden><a href="contact.html" data-cfg-href="linkedin" target="_blank" rel="noopener">Amar Sarajlija on LinkedIn<span class="sr-only"> (opens in a new tab)</span></a></li>
           </ul>
         </div>
       </div>

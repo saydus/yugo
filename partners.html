@@ -3,11 +3,16 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#0f1a2b">
+  <meta name="theme-color" content="#064fa1">
   <meta name="format-detection" content="telephone=no">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Yugo Contracting LLC">
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <meta property="og:image" content="https://www.yugocontracting.com/assets/logo-card.png">
+  <link rel="icon" href="assets/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@1,800&amp;display=swap">
   <link rel="stylesheet" href="assets/styles.css">
   <title>HVAC for property managers, landlords, investors &amp; builders | Yugo Contracting</title>
   <meta name="description" content="Recurring HVAC maintenance, repairs, replacements and subcontracted installs for property managers, landlords, real estate investors, builders and local businesses in Central New York. One point of contact: the owner.">
@@ -18,12 +23,22 @@
   <a class="skip" href="#main">Skip to content</a>
 
   <svg class="sprite" aria-hidden="true" focusable="false">
-    <symbol id="mark" viewBox="0 0 40 40">
-      <rect x="0.5" y="0.5" width="39" height="39" fill="#0f1a2b" stroke="#3a4d6b"/>
-      <path d="M11 10l9 11.500" fill="none" stroke="#ff8a4c" stroke-width="4.500" stroke-linecap="square"/>
-      <path d="M29 10l-9 11.500" fill="none" stroke="#86c8f0" stroke-width="4.500" stroke-linecap="square"/>
-      <path d="M20 22v8.500" fill="none" stroke="#ffffff" stroke-width="4.500" stroke-linecap="square"/>
+    <symbol id="mark" viewBox="0 0 164 62">
+      <defs>
+        <linearGradient id="yugo-split" gradientUnits="userSpaceOnUse" x1="0" y1="14" x2="0" y2="38">
+          <stop offset="0" stop-color="#064fa1"/><stop offset="0.44" stop-color="#064fa1"/>
+          <stop offset="0.44" stop-color="#ffffff"/><stop offset="0.5" stop-color="#ffffff"/>
+          <stop offset="0.5" stop-color="#de2327"/><stop offset="0.6" stop-color="#de2327"/>
+          <stop offset="0.6" stop-color="#ffffff"/><stop offset="0.65" stop-color="#ffffff"/>
+          <stop offset="0.65" stop-color="#de2327"/><stop offset="1" stop-color="#de2327"/>
+        </linearGradient>
+      </defs>
+      <text x="77" y="38" text-anchor="middle" textLength="92" lengthAdjust="spacingAndGlyphs" font-family="'Barlow Condensed','Arial Narrow','Helvetica Neue',Arial,sans-serif" font-size="33" font-style="italic" font-weight="800" fill="url(#yugo-split)">YUGO</text>
+      <text x="73" y="50.500" text-anchor="middle" textLength="100" lengthAdjust="spacingAndGlyphs" font-family="'Barlow Condensed','Arial Narrow','Helvetica Neue',Arial,sans-serif" font-size="10.500" font-style="italic" font-weight="800" fill="#de2327">CONTRACTING LLC</text>
+      <polygon transform="translate(148 12) scale(1.150)" points="0,-10 2.245,-3.090 9.510,-3.090 3.633,1.180 5.880,8.090 0,3.820 -5.880,8.090 -3.633,1.180 -9.510,-3.090 -2.245,-3.090" fill="#fecf06" stroke="#ffffff" stroke-width="1.500" stroke-linejoin="miter"/>
     </symbol>
+    <symbol id="i-star" viewBox="-10 -10 20 20"><polygon points="0,-10 2.245,-3.090 9.510,-3.090 3.633,1.180 5.880,8.090 0,3.820 -5.880,8.090 -3.633,1.180 -9.510,-3.090 -2.245,-3.090"/></symbol>
+    <symbol id="i-ext" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v6H4V6h6"/></symbol>
     <symbol id="i-flame" viewBox="0 0 24 24"><path d="M12 3c1 3.500 5 5 5 10a5 5 0 0 1-10 0c0-2 1-3.200 2-4 0 2 1 3 2 3 0-3-1-5 1-9z"/></symbol>
     <symbol id="i-snow" viewBox="0 0 24 24"><path d="M12 2v20M3.300 7l17.400 10M20.700 7 3.300 17M12 6 9.500 3.500M12 6l2.500-2.500M12 18l-2.500 2.500M12 18l2.500 2.500"/></symbol>
     <symbol id="i-system" viewBox="0 0 24 24"><rect x="3" y="9" width="18" height="12"/><path d="M7 13h6M7 17h10M12 2v4.500M9.500 4.500 12 7l2.500-2.500"/></symbol>
@@ -45,9 +60,8 @@
 
   <header class="site-header">
     <div class="wrap header-row">
-      <a class="brand" href="index.html" aria-label="Yugo Contracting, home">
-        <svg aria-hidden="true"><use href="#mark"/></svg>
-        <span class="brand-name"><b>YUGO</b><span>CONTRACTING</span></span>
+      <a class="brand" href="index.html" aria-label="Yugo Contracting LLC, home" data-logo>
+        <img class="brand-img" src="assets/logo-mark.webp" alt="Yugo Contracting LLC" width="480" height="232"><svg class="brand-logo" aria-hidden="true" hidden><use href="#mark"/></svg>
       </a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
         <svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg>Menu
@@ -73,8 +87,8 @@
     <section class="page-hero">
       <div class="wrap">
         <span class="eyebrow">Property managers &middot; Landlords &middot; Investors &middot; Builders &middot; Local businesses</span>
-        <h1>HVAC for people responsible for more than one building.</h1>
-        <p class="lede">Yugo Contracting takes on recurring and larger work: maintenance and repairs across residential properties, equipment replacements, subcontracted installs and select light commercial service. Your point of contact is Amar, the owner.</p>
+        <h1>One HVAC contractor for every building you're responsible for.</h1>
+        <p class="lede">Recurring maintenance, repairs, equipment replacements, subcontracted installs and select light commercial service across Central New York. Your contact is the owner, Amar Sarajlija.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="#account">Set up an account</a>
           <a class="btn btn-ghost" href="contact.html" data-cfg-href="tel"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg><span data-cfg="phone">Contact details</span></a>
@@ -84,6 +98,24 @@
           <li><a href="#investors">Real estate investors</a></li>
           <li><a href="#builders">General contractors &amp; builders</a></li>
           <li><a href="#businesses">Local businesses</a></li>
+          <li><a href="#capabilities">Capabilities</a></li>
+          <li><a href="#overview">Company overview</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section on-dark" id="why" aria-labelledby="why-h">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow">Why an owner-operator</span>
+          <h2 id="why-h">The owner does the work and answers for it.</h2>
+          <p style="color:#dfe6f5">Yugo Contracting is one person, Amar Sarajlija. For a property manager or a builder, that is the point.</p>
+        </div>
+        <ul class="why">
+          <li><svg class="star" aria-hidden="true"><use href="#i-star"/></svg><div><h3>Accountability</h3><p>The person who scopes the work is the person who does it and the person who answers for it.</p></div></li>
+          <li><svg class="star" aria-hidden="true"><use href="#i-star"/></svg><div><h3>One contact</h3><p>One name and one direct line for every property and every project.</p></div></li>
+          <li><svg class="star" aria-hidden="true"><use href="#i-star"/></svg><div><h3>Consistent workmanship</h3><p>The same hands on every unit, so the work is done the same way across your portfolio.</p></div></li>
+          <li><svg class="star" aria-hidden="true"><use href="#i-star"/></svg><div><h3>No handoffs</h3><p>Nothing passes between a salesperson, a dispatcher and a technician, because there is only Amar.</p></div></li>
         </ul>
       </div>
     </section>
@@ -196,7 +228,39 @@
       </div>
     </section>
 
-    <section class="section section-white" id="account" aria-labelledby="account-h">
+    <section class="section section-white" id="capabilities" aria-labelledby="cap-h">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow">Capabilities</span>
+          <h2 id="cap-h">What Yugo Contracting covers, by property type.</h2>
+        </div>
+        <div class="matrix-wrap" role="region" aria-labelledby="cap-h" tabindex="0">
+          <table class="matrix">
+            <thead>
+              <tr>
+                <th scope="col">Service line</th>
+                <th scope="col">Single-family homes</th>
+                <th scope="col">Multi-unit rentals</th>
+                <th scope="col">Light commercial</th>
+                <th scope="col">Subcontracting: new construction and renovation</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Furnace diagnostics and repairs</th><td class="yes"><svg class="star" aria-hidden="true"><use href="#i-star"/></svg><span class="sr-only">Yes</span></td><td class="yes"><svg class="star" aria-hidden="true"><use href="#i-star"/></svg><span class="sr-only">Yes</span></td><td class="sel">Select</td><td class="no"><span aria-hidden="true">&ndash;</span><span class="sr-only">Not offered as subcontract work</span></td></tr>
+              <tr><th scope="row">Air conditioning diagnostics and repairs</th><td class="yes"><svg class="star" aria-hidden="true"><use href="#i-star"/></svg><span class="sr-only">Yes</span></td><td class="yes"><svg class="star" aria-hidden="true"><use href="#i-star"/></svg><span class="sr-only">Yes</span></td><td class="sel">Select</td><td class="no"><span aria-hidden="true">&ndash;</span><span class="sr-only">Not offered as subcontract work</span></td></tr>
+              <tr><th scope="row">System installations and replacements</th><td class="yes"><svg class="star" aria-hidden="true"><use href="#i-star"/></svg><span class="sr-only">Yes</span></td><td class="yes"><svg class="star" aria-hidden="true"><use href="#i-star"/></svg><span class="sr-only">Yes</span></td><td class="sel">Select</td><td class="yes"><svg class="star" aria-hidden="true"><use href="#i-star"/></svg><span class="sr-only">Yes</span></td></tr>
+              <tr><th scope="row">Preventative maintenance and tune-ups</th><td class="yes"><svg class="star" aria-hidden="true"><use href="#i-star"/></svg><span class="sr-only">Yes</span></td><td class="yes"><svg class="star" aria-hidden="true"><use href="#i-star"/></svg><span class="sr-only">Yes</span></td><td class="sel">Select</td><td class="no"><span aria-hidden="true">&ndash;</span><span class="sr-only">Not offered as subcontract work</span></td></tr>
+              <tr><th scope="row">Thermostat installation</th><td class="yes"><svg class="star" aria-hidden="true"><use href="#i-star"/></svg><span class="sr-only">Yes</span></td><td class="yes"><svg class="star" aria-hidden="true"><use href="#i-star"/></svg><span class="sr-only">Yes</span></td><td class="sel">Select</td><td class="yes"><svg class="star" aria-hidden="true"><use href="#i-star"/></svg><span class="sr-only">Yes</span></td></tr>
+              <tr><th scope="row">Mini-split installation and service</th><td class="yes"><svg class="star" aria-hidden="true"><use href="#i-star"/></svg><span class="sr-only">Yes</span></td><td class="yes"><svg class="star" aria-hidden="true"><use href="#i-star"/></svg><span class="sr-only">Yes</span></td><td class="sel">Select</td><td class="yes"><svg class="star" aria-hidden="true"><use href="#i-star"/></svg><span class="sr-only">Yes</span></td></tr>
+              <tr><th scope="row">Ductwork and ventilation</th><td class="yes"><svg class="star" aria-hidden="true"><use href="#i-star"/></svg><span class="sr-only">Yes</span></td><td class="yes"><svg class="star" aria-hidden="true"><use href="#i-star"/></svg><span class="sr-only">Yes</span></td><td class="sel">Select</td><td class="yes"><svg class="star" aria-hidden="true"><use href="#i-star"/></svg><span class="sr-only">Yes</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="matrix-key"><strong>Select</strong> means light commercial work is taken on depending on scope, decided with Amar. Subcontracting covers installs and replacements.</p>
+      </div>
+    </section>
+
+    <section class="section" id="account" aria-labelledby="account-h">
       <div class="wrap form-layout">
         <div>
           <span class="eyebrow">Set up an account</span>
@@ -308,6 +372,112 @@
       </div>
     </section>
 
+    <section class="section section-white" data-slot="credentials" aria-labelledby="cred-h" hidden>
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow"></span>
+          <h2 id="cred-h"></h2>
+        </div>
+        <ul class="cred-list"></ul>
+      </div>
+    </section>
+
+    <section class="section" data-slot="reviews" aria-labelledby="reviews-h" hidden>
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow"></span>
+          <h2 id="reviews-h"></h2>
+        </div>
+        <ul class="grid grid-3 review-list"></ul>
+        <p class="section-foot" data-show-if="googleReviewsUrl" hidden><a class="btn btn-ghost" href="contact.html" data-cfg-href="googleReviewsUrl" target="_blank" rel="noopener" data-slot-link></a></p>
+      </div>
+    </section>
+
+    <section class="section section-white" id="owner" aria-labelledby="owner-h">
+      <div class="wrap owner-grid">
+        <div class="owner-badge" aria-hidden="true"><span>AS</span></div>
+        <div class="owner-copy">
+          <span class="eyebrow">Meet the owner</span>
+          <h2 id="owner-h">Amar Sarajlija</h2>
+          <p class="owner-role">Owner, Yugo Contracting LLC</p>
+          <p>Amar owns and runs Yugo Contracting from Utica. He takes your call, scopes the job and does the work himself, so the person you hire is the person who shows up.</p>
+          <p>His business is HVAC services and home improvement contracting across Central New York: residential heating and cooling first, with select light commercial work and subcontracting for builders.</p>
+          <p class="owner-edu" data-show-if="ownerEducation" hidden>Education: <span data-cfg="ownerEducation"></span>.</p>
+          <a class="btn btn-ghost" href="contact.html" data-cfg-href="linkedin" data-show-if="linkedin" target="_blank" rel="noopener" hidden><svg class="icon" aria-hidden="true"><use href="#i-ext"/></svg>Amar Sarajlija on LinkedIn<span class="sr-only"> (opens in a new tab)</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="overview" aria-labelledby="ov-h">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow">Company overview</span>
+          <h2 id="ov-h">One page to hand to your team.</h2>
+          <p>Services, service area, who to contact and how an account works. Print it or save it as a PDF.</p>
+        </div>
+        <div class="overview-sheet">
+          <div class="overview-head">
+            <div>
+              <h3>Company overview</h3>
+              <p>Yugo Contracting LLC &middot; Heating &bull; Cooling &bull; HVAC &middot; Utica, NY</p>
+            </div>
+            <img class="overview-logo" src="assets/logo.webp" alt="Yugo Contracting LLC. Heating, Cooling, HVAC. Real People. Real Work. Real Pride." width="800" height="539">
+          </div>
+          <div class="overview-cols">
+            <div>
+              <h4>Services</h4>
+              <ul>
+                <li>Furnace diagnostics, troubleshooting and repairs</li>
+                <li>Air conditioning diagnostics, troubleshooting and repairs</li>
+                <li>Heating and cooling system installations and replacements</li>
+                <li>Preventative maintenance and seasonal tune-ups</li>
+                <li>Thermostat installation</li>
+                <li>Mini-split installation and service</li>
+                <li>Ductwork and ventilation</li>
+                <li>Select light commercial HVAC, depending on scope</li>
+              </ul>
+              <h4>Who we work with</h4>
+              <ul>
+                <li>Property managers and landlords: recurring maintenance, repairs and equipment replacements across residential properties</li>
+                <li>General contractors and builders: subcontracted HVAC installs and replacements</li>
+                <li>Real estate investors: rental properties, renovations and acquisitions</li>
+                <li>Local businesses: light commercial maintenance and service</li>
+                <li>Homeowners</li>
+              </ul>
+            </div>
+            <div>
+              <h4>Service area</h4>
+              <ul>
+                <li>Utica, New Hartford, Whitesboro and Rome</li>
+                <li>Herkimer, Ilion, Frankfort and surrounding areas</li>
+                <li>Syracuse and surrounding communities</li>
+                <li>Other nearby areas depending on the scope and size of the job</li>
+              </ul>
+              <h4>How an account works</h4>
+              <ol>
+                <li>Send your details, by phone, email or the account form on the website.</li>
+                <li>Amar calls you himself to talk through your properties or projects.</li>
+                <li>He sets up the visit and schedules the work with you.</li>
+              </ol>
+              <h4>Contact</h4>
+              <dl>
+                <dt>Owner</dt><dd>Amar Sarajlija</dd>
+                <dt>Phone</dt><dd data-cfg="phone"></dd>
+                <dt>Email</dt><dd data-cfg="email"></dd>
+                <dt>Hours</dt><dd data-cfg="hours"></dd>
+                <dt>Web</dt><dd data-cfg="domain"></dd>
+                <dt data-show-if="linkedin" hidden>LinkedIn</dt><dd data-cfg="linkedin" data-show-if="linkedin" hidden></dd>
+              </dl>
+            </div>
+          </div>
+          <p class="overview-note" data-slot="credentials-inline" hidden></p>
+          <p class="overview-note">One point of contact: the owner. Pricing is discussed directly with Amar once he knows the job.</p>
+          <p class="overview-tagline">Real People. Real Work. Real Pride.</p>
+        </div>
+        <p class="overview-actions"><button class="btn btn-primary" type="button" data-print-overview>Print or save as PDF</button></p>
+      </div>
+    </section>
+
     <section class="section on-dark" aria-labelledby="band-h">
       <div class="wrap band-grid">
         <div>
@@ -325,11 +495,11 @@
     <div class="wrap">
       <div class="footer-grid">
         <div class="footer-about">
-          <a class="brand" href="index.html" aria-label="Yugo Contracting, home">
-            <svg aria-hidden="true"><use href="#mark"/></svg>
-            <span class="brand-name"><b>YUGO</b><span>CONTRACTING</span></span>
+          <a class="brand" href="index.html" aria-label="Yugo Contracting LLC, home" data-logo>
+            <img class="brand-img" src="assets/logo-mark.webp" alt="Yugo Contracting LLC" width="480" height="232"><svg class="brand-logo" aria-hidden="true" hidden><use href="#mark"/></svg>
           </a>
-          <p>Yugo Contracting LLC is an owner-operated HVAC company based in Utica, NY. Residential heating and cooling, plus select light commercial work, across Central New York and the Mohawk Valley.</p>
+          <p class="tagline">Real People. Real Work. <span>Real Pride.</span></p>
+          <p>Yugo Contracting LLC is an owner-operated HVAC company based in Utica, NY, owned and run by Amar Sarajlija. Residential heating and cooling, plus select light commercial work, across Central New York and the Mohawk Valley.</p>
         </div>
         <nav aria-label="Footer">
           <h2>Pages</h2>
@@ -347,6 +517,7 @@
             <li><a href="contact.html" data-cfg-href="mailto"><span data-cfg="email">Send a request</span></a></li>
             <li data-cfg="address">Utica, NY</li>
             <li data-cfg="hours"></li>
+            <li data-show-if="linkedin" hidden><a href="contact.html" data-cfg-href="linkedin" target="_blank" rel="noopener">Amar Sarajlija on LinkedIn<span class="sr-only"> (opens in a new tab)</span></a></li>
           </ul>
         </div>
       </div>

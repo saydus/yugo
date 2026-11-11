@@ -21,9 +21,39 @@ var CONFIG = {
   // Optional. Street line only. Leave "" to show just "Utica, NY".
   streetAddress: "",
 
-  // Optional. Shown in the footer only when filled in. Leave "" to hide.
-  // Only put a licence or insurance statement here if it is true and current.
+  // Logo shown in the header and footer. Leave "" to fall back to the drawn
+  // wordmark. To change it, replace the file or point this at another image.
+  logoSrc: "assets/logo-mark.webp",
+
+  // Owner's LinkedIn profile. Leave "" to remove every LinkedIn link.
+  linkedin: "https://www.linkedin.com/in/amar-sarajlija/",
+
+  // CONFIRM WITH THE OWNER BEFORE LAUNCH. Shown as "Education: ..." in the
+  // "Meet the owner" block. Leave "" to remove it. Name of the school only.
+  ownerEducation: "Vanderbilt University",
+
+  // ---- Credentials: all empty by default and invisible until filled. ----
+  // Only add statements that are true, current and that you can show proof of.
+
+  // e.g. "Licensed HVAC contractor, City of Utica #12345"
   licenseLine: "",
+
+  // e.g. "Fully insured: general liability and workers' compensation"
+  insuranceLine: "",
+
+  // e.g. ["EPA Section 608 Universal", "NATE certified"]
+  certifications: [],
+
+  // Real customer reviews, with permission. e.g.
+  // [{ quote: "…", name: "Jane D.", town: "New Hartford" }]
+  reviews: [],
+
+  // Link to the Google Business Profile reviews page.
+  googleReviewsUrl: "",
+
+  // Recent jobs. image is optional (a file in assets/). e.g.
+  // [{ title: "Furnace replacement", town: "Utica", summary: "…", image: "assets/job-1.jpg" }]
+  projects: [],
 
   // Optional. URL that accepts a JSON POST of the form data.
   // Leave "" and the forms open a pre-filled email to CONFIG.email instead.
@@ -67,6 +97,9 @@ var CONFIG = {
     else if (key === "email") el.textContent = CONFIG.email;
     else if (key === "hours") el.textContent = CONFIG.hours;
     else if (key === "address") el.textContent = address;
+    else if (key === "domain") el.textContent = CONFIG.domain;
+    else if (key === "ownerEducation") el.textContent = CONFIG.ownerEducation;
+    else if (key === "linkedin") el.textContent = CONFIG.linkedin.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "");
     else if (key === "license") {
       if (CONFIG.licenseLine.trim()) {
         el.textContent = CONFIG.licenseLine.trim();
@@ -81,6 +114,139 @@ var CONFIG = {
     var kind = el.getAttribute("data-cfg-href");
     if (kind === "tel") el.setAttribute("href", telHref(CONFIG.phone));
     if (kind === "mailto") el.setAttribute("href", "mailto:" + CONFIG.email);
+    if ((kind === "linkedin" || kind === "googleReviewsUrl") && CONFIG[kind].trim()) el.setAttribute("href", CONFIG[kind].trim());
+  });
+
+  function filled(key) {
+    var v = CONFIG[key];
+    return Array.isArray(v) ? v.length > 0 : Boolean(String(v || "").trim());
+  }
+
+  each("[data-show-if]", function (el) {
+    el.hidden = !filled(el.getAttribute("data-show-if"));
+  });
+
+  /* ---- Logo: real image when CONFIG.logoSrc is set, drawn wordmark otherwise ---- */
+
+  each("[data-logo]", function (holder) {
+    var img = holder.querySelector("img");
+    var drawn = holder.querySelector("svg");
+    var src = CONFIG.logoSrc.trim();
+    if (!img || !drawn) return;
+    if (!src) {
+      img.setAttribute("hidden", "");
+      drawn.removeAttribute("hidden");
+    } else if (img.getAttribute("src") !== src) {
+      img.removeAttribute("width");
+      img.removeAttribute("height");
+      img.setAttribute("src", src);
+    }
+  });
+
+  /* ---- Credential slots: render only what CONFIG actually contains ---- */
+
+  function el(tag, className, text) {
+    var node = doc.createElement(tag);
+    if (className) node.className = className;
+    if (text) node.textContent = text;
+    return node;
+  }
+
+  function starIcon() {
+    var svg = doc.createElementNS("http://www.w3.org/2000/svg", "svg");
+    svg.setAttribute("class", "star");
+    svg.setAttribute("aria-hidden", "true");
+    var use = doc.createElementNS("http://www.w3.org/2000/svg", "use");
+    use.setAttribute("href", "#i-star");
+    svg.appendChild(use);
+    return svg;
+  }
+
+  var SLOT_TEXT = {
+    credentials: ["Credentials", "Licensing, insurance and certifications."],
+    reviews: ["Reviews", "What customers say."],
+    projects: ["Recent work", "Recent jobs."]
+  };
+
+  function reveal(section) {
+    var text = SLOT_TEXT[section.getAttribute("data-slot")];
+    section.querySelector(".eyebrow").textContent = text[0];
+    section.querySelector("h2").textContent = text[1];
+    each("[data-slot-link]", function (a) { a.textContent = "Read reviews on Google (opens in a new tab)"; }, section);
+    section.hidden = false;
+  }
+
+  var credentials = [CONFIG.licenseLine, CONFIG.insuranceLine]
+    .concat(CONFIG.certifications)
+    .map(function (s) { return String(s || "").trim(); })
+    .filter(Boolean);
+
+  each('[data-slot="credentials"]', function (section) {
+    if (!credentials.length) return;
+    var list = section.querySelector(".cred-list");
+    credentials.forEach(function (text) {
+      var li = el("li");
+      li.appendChild(starIcon());
+      li.appendChild(el("span", "", text));
+      list.appendChild(li);
+    });
+    reveal(section);
+  });
+
+  each('[data-slot="credentials-inline"]', function (node) {
+    if (!credentials.length) return;
+    node.textContent = credentials.join(" · ");
+    node.hidden = false;
+  });
+
+  each('[data-slot="reviews"]', function (section) {
+    var reviews = CONFIG.reviews.filter(function (r) { return r && r.quote; });
+    if (!reviews.length && !filled("googleReviewsUrl")) return;
+    var list = section.querySelector(".review-list");
+    reviews.forEach(function (r) {
+      var li = el("li");
+      var fig = el("figure");
+      fig.appendChild(el("blockquote", "", "“" + String(r.quote).trim() + "”"));
+      var who = [r.name, r.town].filter(Boolean).join(", ");
+      if (who) fig.appendChild(el("figcaption", "", who));
+      li.appendChild(fig);
+      list.appendChild(li);
+    });
+    list.hidden = !reviews.length;
+    reveal(section);
+  });
+
+  each('[data-slot="projects"]', function (section) {
+    var projects = CONFIG.projects.filter(function (p) { return p && p.title; });
+    if (!projects.length) return;
+    var list = section.querySelector(".project-list");
+    projects.forEach(function (p) {
+      var li = el("li", "card");
+      if (p.image) {
+        var img = doc.createElement("img");
+        img.src = p.image;
+        img.alt = p.title + (p.town ? ", " + p.town : "");
+        img.loading = "lazy";
+        li.appendChild(img);
+      }
+      li.appendChild(el("h3", "", p.title));
+      if (p.town) li.appendChild(el("div", "town", p.town));
+      if (p.summary) li.appendChild(el("p", "", p.summary));
+      list.appendChild(li);
+    });
+    reveal(section);
+  });
+
+  /* ---- Print the company overview on its own ---- */
+
+  each("[data-print-overview]", function (button) {
+    button.addEventListener("click", function () {
+      doc.documentElement.classList.add("print-overview");
+      window.print();
+    });
+  });
+  window.addEventListener("afterprint", function () {
+    doc.documentElement.classList.remove("print-overview");
   });
 
   each("[data-year]", function (el) {
@@ -100,6 +266,8 @@ var CONFIG = {
     og.setAttribute("property", "og:url");
     og.content = url;
     doc.head.appendChild(og);
+    var ogImage = doc.querySelector('meta[property="og:image"]');
+    if (ogImage) ogImage.content = "https://" + CONFIG.domain.replace(/^https?:\/\//, "").replace(/\/$/, "") + "/assets/logo-card.png";
   }
 
   var ld = doc.getElementById("ld-business");
@@ -110,6 +278,14 @@ var CONFIG = {
       if (!isPlaceholder("email")) data.email = CONFIG.email;
       if (!isPlaceholder("domain")) data.url = "https://" + CONFIG.domain.replace(/^https?:\/\//, "").replace(/\/$/, "") + "/";
       if (CONFIG.streetAddress.trim()) data.address.streetAddress = CONFIG.streetAddress.trim();
+      if (data.url) {
+        data.logo = data.url + "assets/logo.png";
+        data.image = data.url + "assets/logo-card.png";
+      }
+      if (filled("linkedin")) {
+        data.sameAs = [CONFIG.linkedin.trim()];
+        if (data.founder) data.founder.sameAs = CONFIG.linkedin.trim();
+      }
       ld.textContent = JSON.stringify(data);
     } catch (e) {
       /* leave the static block as written */
