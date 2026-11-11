@@ -7,13 +7,13 @@
  */
 var CONFIG = {
   // Required. Public phone number, written the way it should be displayed.
-  phone: "(667) 220-6558",
+  phone: "(315) 749-3430",
 
   // Required. Public email address. Also receives the form's email fallback.
   email: "amar@yugocontracting.com",
 
   // Required. Plain text, e.g. "Mon to Fri, 8am to 5pm".
-  hours: "Mon to Sat, 8am to 6pm",
+  hours: "Every day, 8am to 8pm",
 
   // Required. The live domain, no protocol, e.g. "www.yourdomain.com".
   domain: "www.yugocontracting.com",

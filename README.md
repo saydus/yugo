@@ -35,9 +35,9 @@ Nothing else needs editing.
 
 | Key | Current value | Notes |
 | --- | --- | --- |
-| `phone` | `(667) 220-6558` | Header, footer, contact page, mobile bar, system-down band. |
+| `phone` | `(315) 749-3430` | Header, footer, contact page, mobile bar, system-down band. |
 | `email` | `amar@yugocontracting.com` | Also where the forms' email fallback is addressed. |
-| `hours` | `Mon to Sat, 8am to 6pm` | Plain text. |
+| `hours` | `Every day, 8am to 8pm` | Plain text. |
 | `domain` | `www.yugocontracting.com` | Canonical URL, `og:url`, `og:image`, structured data. |
 | `streetAddress` | `""` | Optional. Empty shows only "Utica, NY". |
 | `logoSrc` | `assets/logo-mark.webp` | Header and footer logo. To swap the logo, replace the file or point this at another image. Set to `""` to fall back to a drawn wordmark. |
