@@ -2627,3 +2627,43 @@ h3 {
 .matrix td {
   position: relative;
 }
+
+/* Promo video beside the owner block */
+
+.promo {
+  margin: 0;
+  max-width: 420px;
+}
+
+.promo video {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-bottom: 5px solid var(--red);
+}
+
+.promo figcaption {
+  margin-top: 10px;
+  font-size: 0.88rem;
+  line-height: 1.45;
+  color: var(--muted);
+}
+
+@media (min-width: 760px) {
+  .owner-grid .promo {
+    grid-column: 2;
+  }
+}
+
+@media (min-width: 1040px) {
+  .owner-grid:has(.promo) {
+    grid-template-columns: 180px 1fr 380px;
+  }
+
+  .owner-grid .promo {
+    grid-column: 3;
+  }
+}

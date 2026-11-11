@@ -255,19 +255,35 @@ var CONFIG = {
 
   /* ---- Domain-dependent head tags and structured data ---- */
 
+  // The canonical, og:* and twitter:* tags are written statically in each page
+  // (link-preview crawlers do not run scripts). Here they are only re-pointed
+  // at CONFIG.domain, so they never go stale if the domain setting changes.
   if (!isPlaceholder("domain")) {
-    var page = location.pathname.split("/").pop() || "index.html";
-    var url = "https://" + CONFIG.domain.replace(/^https?:\/\//, "").replace(/\/$/, "") + "/" + (page === "index.html" ? "" : page);
-    var canonical = doc.createElement("link");
-    canonical.rel = "canonical";
-    canonical.href = url;
-    doc.head.appendChild(canonical);
-    var og = doc.createElement("meta");
-    og.setAttribute("property", "og:url");
-    og.content = url;
-    doc.head.appendChild(og);
-    var ogImage = doc.querySelector('meta[property="og:image"]');
-    if (ogImage) ogImage.content = "https://" + CONFIG.domain.replace(/^https?:\/\//, "").replace(/\/$/, "") + "/assets/logo-card.png";
+    var origin = "https://" + CONFIG.domain.replace(/^https?:\/\//, "").replace(/\/$/, "");
+    each('link[rel="canonical"]', function (link) {
+      link.setAttribute("href", link.getAttribute("href").replace(/^https?:\/\/[^/]+/, origin));
+    });
+    each('meta[property^="og:"], meta[name^="twitter:"]', function (meta) {
+      var content = meta.getAttribute("content") || "";
+      if (/^https?:\/\//.test(content)) meta.setAttribute("content", content.replace(/^https?:\/\/[^/]+/, origin));
+    });
+  }
+
+  // Promo video: plays muted only while on screen, and never on its own for
+  // visitors who ask for reduced motion (they still get the controls).
+  var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (!reduceMotion && "IntersectionObserver" in window) {
+    var watcher = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          var playing = entry.target.play();
+          if (playing && playing.catch) playing.catch(function () {});
+        } else {
+          entry.target.pause();
+        }
+      });
+    }, { threshold: 0.5 });
+    each("video[data-autoplay]", function (video) { watcher.observe(video); });
   }
 
   var ld = doc.getElementById("ld-business");

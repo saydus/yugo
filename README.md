@@ -14,7 +14,9 @@ assets/site.js           <- all settings live in CONFIG at the top of this file
 assets/logo-mark.webp    header and footer logo (YUGO + star + CONTRACTING LLC), transparent
 assets/logo.webp         full lockup with descriptor and tagline, transparent (company overview)
 assets/logo.png, logo-mark.png   PNG copies of the two above
-assets/logo-card.png     1200x630 logo on white, used for link previews (og:image)
+assets/logo-card.png     1200x630 logo on white (structured data image)
+assets/yugo-promo.mp4    7.5-second promo video: link-preview video (og:video) and the clip on the home page
+assets/yugo-promo-poster.jpg   its last frame: link-preview image (og:image) and the video poster
 assets/favicon.png, apple-touch-icon.png
 ```
 
@@ -45,7 +47,7 @@ Nothing else needs editing.
 
 If a required value (`phone`, `email`, `hours`, `domain`) is ever set back to a placeholder, a yellow "Preview only" tag appears on every page.
 
-If the domain changes, also edit the one static `og:image` line in the `<head>` of each HTML file; link-preview crawlers do not run the script.
+The domain is also hard-coded in each page: the `canonical`, `og:url`, `og:image`, `og:video*` and `twitter:image` tags in every `<head>` use `https://www.yugocontracting.com`, because link-preview crawlers (iMessage, LinkedIn, Facebook) do not run scripts. If the domain changes, find-and-replace that address in all five HTML files.
 
 ## Credentials: the fastest way to look established
 
@@ -82,6 +84,15 @@ Payload:
 `form` is `quick-call` (home hero: `name`, `phone`, `details`), `request-call` or `partner-account`. The account form requires only `company`, `name`, `phone` and `type`; its fields are `company`, `name`, `role`, `type`, `phone`, `email`, `units`, `needs` (array), `notes`.
 
 Any form service or small serverless function that accepts JSON works. The endpoint must allow cross-origin requests (CORS) from the site's domain, including the `Content-Type: application/json` preflight. A hidden honeypot field (`website`) drops basic bots in the browser; do real spam filtering at the endpoint.
+
+## Promo video and link previews
+
+Sharing a page link in Messages and similar apps shows `assets/yugo-promo-poster.jpg`, and where the app supports it, plays `assets/yugo-promo.mp4`. The same clip sits beside the owner block on the home page (muted, plays only while on screen, never on its own for visitors who ask for reduced motion).
+
+- To replace the video, export a new MP4 with the same name and settings: H.264, 1280x720, 30 fps, yuv420p, `-movflags +faststart`, a few seconds long, well under 3 MB. Replace the poster JPG with a 1280x720 frame from it. If the size changes, update the `og:video:width/height` and `og:image:width/height` tags and the `<video>` width/height.
+- Do not bake a phone number into the video; it cannot be changed later.
+- Apps cache link previews, sometimes for days. After a change, an old preview can keep showing; sending the link with a harmless query string (for example `?v=2`) usually forces a fresh one.
+- The video must be served over HTTPS from the same domain as the page, with the `video/mp4` content type (static hosts do this by default).
 
 ## Company overview PDF
 
