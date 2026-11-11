@@ -10,7 +10,7 @@ var CONFIG = {
   phone: "(315) 749-3430",
 
   // Required. Public email address. Also receives the form's email fallback.
-  email: "amar@yugocontracting.com",
+  email: "info@yugocontracting.com",
 
   // Required. Plain text, e.g. "Mon to Fri, 8am to 5pm".
   hours: "Every day, 8am to 8pm",

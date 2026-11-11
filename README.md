@@ -36,7 +36,7 @@ Nothing else needs editing.
 | Key | Current value | Notes |
 | --- | --- | --- |
 | `phone` | `(315) 749-3430` | Header, footer, contact page, mobile bar, system-down band. |
-| `email` | `amar@yugocontracting.com` | Also where the forms' email fallback is addressed. |
+| `email` | `info@yugocontracting.com` | Also where the forms' email fallback is addressed. |
 | `hours` | `Every day, 8am to 8pm` | Plain text. |
 | `domain` | `www.yugocontracting.com` | Canonical URL, `og:url`, `og:image`, structured data. |
 | `streetAddress` | `""` | Optional. Empty shows only "Utica, NY". |
